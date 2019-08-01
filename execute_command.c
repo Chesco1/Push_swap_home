@@ -23,7 +23,6 @@ void    handle_error(t_stacks *info)
 
 void    execute_command(t_stacks *info, char *command)
 {
-	ft_putendl(command);
     if (ft_strequ(command, "sa") == 1)
         swap_a(info);
     else if (ft_strequ(command, "sb") == 1)
@@ -48,6 +47,7 @@ void    execute_command(t_stacks *info, char *command)
         reverse_rotate_both(info);
     else
 	{
+        ft_printf("command before error: %s", command);
         handle_error(info);
 	}
 }

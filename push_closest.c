@@ -37,12 +37,12 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
         return (B[0]);
     while (i < LEN_B)
     {
-        if (B[i] > pivot)
+        if (B[i] >= pivot)
         {
             ft_strcpy(op_to_closest, "rb");
             return (B[i]);
         }
-        else if (B[j] > pivot)
+        else if (B[j] >= pivot)
         {
             ft_strcpy(op_to_closest, "rrb");
             return (B[j]);

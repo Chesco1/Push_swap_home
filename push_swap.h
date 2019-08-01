@@ -70,6 +70,7 @@ int		find_closest_A(t_stacks *info, int pivot, char *op_to_closest);
 int		find_closest_B(t_stacks *info, int pivot, char *op_to_closest);
 void	push_closest_b(t_stacks *info, int to_find, char *op_to_closest);
 void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest);
+void	recursion(t_stacks *info, int begin_len, int amt_last_to_a, int last_push);
 
 
 #endif
