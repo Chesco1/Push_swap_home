@@ -44,12 +44,17 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
 {
     int i;
     int j;
-    // int flags;
+    t_list *to_push_to_a;
+    t_list *to_push_to_b;
 
+    to_push_to_a = ft_lstnew(NULL, 0);
+    to_push_to_a = ft_lstnew(NULL, 0);
     i = 1;
     j = 0;
     PRINT = 0;
     SHOW_COLOR = 0;
+    LAST_TO_A = 0;
+    LAST_TO_B = 0;
     // flags = handle_flags(argc, argv, info);
     // LEN_A = argc - flags - 1;
 	LEN_A = argc - 1;
