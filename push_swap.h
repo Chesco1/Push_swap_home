@@ -33,6 +33,13 @@ typedef struct  s_stacks
     t_list      *to_push_to_b;
 }               t_stacks;              
 
+typedef struct  s_partitions
+{
+    int                     left_in_a;
+    int                     left_in_b;
+    struct s_partitions     *next;
+}                           t_partitions;
+
 //    11   |  10  |   9   |  8   | 7   |  6  | 5  |  4  | 3  | 2  | 1  
 //    rrr  |  rrb |  rra  |  rr  | rb  | ra  | pb |  pa | ss | sb | sa
 

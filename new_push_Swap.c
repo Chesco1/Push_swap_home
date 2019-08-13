@@ -26,15 +26,14 @@ void	check_swap(t_stacks *info)
 	}
 }
 
-void	update_list(t_stacks *info, char stack_last_pushed, int last_push)
+void	update_list(t_stacks *info, char stack_last_pushed, int left_from_partition)
 {
 	int half;
 
-	half = last_push / 2;
+	half = left_from_partition / 2;
 	if (stack_last_pushed == 'B')
 	{
-		ft_lstadd(&TO_PUSH_TO_A, ft_lstnew("hoi", half));
-		ft_lstadd(&TO_PUSH_TO_A, ft_lstnew("hoi", last_push - half));
+		ft_lstadd(&TO_PUSH_TO_A, ft_lstnew("hoi", ft_max(half, 1)));
 	}
 }
 
@@ -51,7 +50,9 @@ void	push_back_to_a(t_stacks *info)
     {
         push_closest_a(info, closest, op_to_closest);
     	closest = find_closest_B(info, pivot, op_to_closest);
+		LAST_TO_A++;
     }
+	ft_lst_remove_first(&TO_PUSH_TO_A);
 	check_swap(info);
 }
 
@@ -73,6 +74,7 @@ void	initial_push(t_stacks *info)
             closest = find_closest_A(info, pivot, op_to_closest);
 			LAST_TO_B++;
         }
+		update_list(info, 'B', LAST_TO_B);
 		check_swap(info);
     }
 	print_stacks(info);
