@@ -26,19 +26,11 @@ typedef struct  s_stacks
     char        last_op;
     char        print;
     char        show_color;
-    int         amt_to_sort;
-    int         last_to_a;
-    int         last_to_b;
-    t_list      *to_push_to_a;
-    t_list      *to_push_to_b;
+    int         left_in_partition_a;
+    t_list      *b_partitions;
 }               t_stacks;              
 
-typedef struct  s_partitions
-{
-    int                     left_in_a;
-    int                     left_in_b;
-    struct s_partitions     *next;
-}                           t_partitions;
+
 
 //    11   |  10  |   9   |  8   | 7   |  6  | 5  |  4  | 3  | 2  | 1  
 //    rrr  |  rrb |  rra  |  rr  | rb  | ra  | pb |  pa | ss | sb | sa
@@ -50,17 +42,9 @@ typedef struct  s_partitions
 # define LAST_OP info->last_op
 # define PRINT info->print
 # define SHOW_COLOR info->show_color
-# define AMT_TO_SORT info->amt_to_sort
-// # define SMALLEST_NBS info->smallest_nbs
-# define PIVOT info->pivot
-# define CLOSEST info->closest
-# define OP_TO_CLOSEST info->op_to_closest
-# define TO_PUSH_TO_A info->to_push_to_a
-# define TO_PUSH_TO_B info->to_push_to_b
-# define VALUE_A info->to_push_to_a->content_size
-# define VALUE_B info->to_push_to_b->content_size
-# define LAST_TO_A info->last_to_a
-# define LAST_TO_B info->last_to_b
+# define LEFT_IN_PARTITION_A info->left_in_partition_a
+# define B_PARTITIONS info->b_partitions
+# define LEFT_IN_PARTITION_B info->b_partitions->content_size
 
 void	swap_a(t_stacks *info);
 void	swap_b(t_stacks *info);
@@ -86,6 +70,7 @@ int		find_closest_A(t_stacks *info, int pivot, char *op_to_closest);
 int		find_closest_B(t_stacks *info, int pivot, char *op_to_closest);
 void	push_closest_b(t_stacks *info, int to_find, char *op_to_closest);
 void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest);
-void	recursion(t_stacks *info, int begin_len, int amt_last_to_a, int last_push);
 
+void	push_back_to_a(t_stacks *info);
+void	push_back_to_b(t_stacks *info);
 #endif
