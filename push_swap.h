@@ -63,6 +63,7 @@ void	reverse_rotate_both(t_stacks *info);
 
 void	print_stacks(t_stacks *info);
 int		is_sorted(t_stacks *info, char stack);
+int     is_done(t_stacks *info);
 void	execute_command(t_stacks *info, char *command);
 
 void	initial_push(t_stacks *info);

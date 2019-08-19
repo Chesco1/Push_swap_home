@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   is_sorted.c                                        :+:    :+:            */
+/*   is_done.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
@@ -36,4 +36,11 @@ int     is_sorted(t_stacks *info, char stack)
         } 
     }
     return (1);
+}
+
+int     is_done(t_stacks *info)
+{
+    if (is_sorted(info, 'A') == 1 && LEN_B == 0)
+        return (1);
+    return (0);
 }

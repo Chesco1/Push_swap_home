@@ -53,8 +53,6 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
     j = 0;
     PRINT = 0;
     SHOW_COLOR = 0;
-    LAST_TO_A = 0;
-    LAST_TO_B = 0;
     // flags = handle_flags(argc, argv, info);
     // LEN_A = argc - flags - 1;
 	LEN_A = argc - 1;
@@ -62,6 +60,7 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
     A = (int *)malloc(sizeof(int) * LEN_A);
     B = (int *)malloc(sizeof(int) * LEN_A);
     LAST_OP = 0;
+    LEFT_IN_PARTITION_A = LEN_A;
     while (i < argc)
     {
         A[j] = ft_atoi(argv[i]);
