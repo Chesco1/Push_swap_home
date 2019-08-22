@@ -22,7 +22,7 @@ void    push_b(t_stacks *info)
         ft_memmove(A, &A[1], sizeof(int) * (LEN_A - 1));
         LEN_A--;
         LAST_OP = 5;
-        ft_putendl("pb");
+      //  ft_putendl("pb");
         if (PRINT == 1)
             print_stacks(info);
     }
@@ -38,7 +38,7 @@ void    push_a(t_stacks *info)
         ft_memmove(B, &B[1], sizeof(int) * (LEN_B - 1));
         LEN_B--;
         LAST_OP = 4;
-        ft_putendl("pa");
+     //   ft_putendl("pa");
         if (PRINT == 1)
             print_stacks(info);
     }

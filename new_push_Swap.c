@@ -34,20 +34,16 @@ void	update_partitions(t_stacks *info, char stack_last_pushed, int amount_last_p
 		{
 			LEFT_IN_PARTITION_A -= amount_last_pushed;
 		}
-		else 
-		{
-			ft_putendl("Something went wrong while trying to overwrite partition A");
-			exit(1);
-		}
 		ft_lstadd(&B_PARTITIONS, ft_lstnew("hoi", amount_last_pushed));
 	}
 	else if (stack_last_pushed == 'A')
 	{
-		LEFT_IN_PARTITION_B -= amount_last_pushed;
 		LEFT_IN_PARTITION_A = amount_last_pushed;
 	}
 	if (LEFT_IN_PARTITION_B == 0)
+	{
 		ft_lst_remove_first(&B_PARTITIONS);
+	}
 }
 
 void	push_back_to_b(t_stacks *info)
@@ -56,9 +52,12 @@ void	push_back_to_b(t_stacks *info)
     int closest;
     char op_to_closest[4];
 	int last_to_b;
+	int i = 20;
 
-    while (LEFT_IN_PARTITION_A > 2)
+	ft_putendl("hoi");
+    while (LEFT_IN_PARTITION_A > 2 && i < 3800)
     {
+		ft_printf("CLOSEST = %i\nPIVOT = %i, %i\n\n", closest, pivot, LEFT_IN_PARTITION_A);
 		last_to_b = 0;
         pivot = find_nbr_n(A, LEFT_IN_PARTITION_A, ft_max((LEFT_IN_PARTITION_A / 2), 1));
         closest = find_closest_A(info, pivot, op_to_closest);
@@ -67,10 +66,11 @@ void	push_back_to_b(t_stacks *info)
             push_closest_b(info, closest, op_to_closest);
             closest = find_closest_A(info, pivot, op_to_closest);
 			last_to_b++;
-			print_stacks(info);
         }
 		update_partitions(info, 'B', last_to_b);
 		check_swap(info);
+		print_stacks(info);
+		i++;
     }
 	if (LEFT_IN_PARTITION_A == 2)
 		LEFT_IN_PARTITION_A = 0;
@@ -83,16 +83,19 @@ void	push_back_to_a(t_stacks *info)
 	int closest;
 	char op_to_closest[4];
 	int last_to_a;
+	int i = 0;
 
 	last_to_a = 0;
 	pivot = find_nbr_n(B, LEFT_IN_PARTITION_B, ft_max((LEFT_IN_PARTITION_B / 2), 1));
 	closest = find_closest_B(info, pivot, op_to_closest);
-	while (closest >= pivot)
+	while (closest >= pivot && LEFT_IN_PARTITION_B > 0)
     {
+		ft_printf("CLOSEST = %i\nPIVOT = %i\n\n", closest, pivot);
         push_closest_a(info, closest, op_to_closest);
     	closest = find_closest_B(info, pivot, op_to_closest);
 		last_to_a++;
-		print_stacks(info);
+		i++;
+		LEFT_IN_PARTITION_B--;
     }
 	update_partitions(info, 'A', last_to_a);
 	check_swap(info);
@@ -119,7 +122,6 @@ void	initial_push(t_stacks *info)
             push_closest_b(info, closest, op_to_closest);
             closest = find_closest_A(info, pivot, op_to_closest);
 			last_to_b++;
-			ft_printf("LEFT IN A: %i\n", LEFT_IN_PARTITION_A);
         }
 		update_partitions(info, 'B', last_to_b);
 		check_swap(info);
@@ -128,3 +130,5 @@ void	initial_push(t_stacks *info)
 	push_back_to_a(info);
 	print_stacks(info);
 }
+
+//ft_printf("CLOSEST = %i\nPIVOT = %i\n\n", closest, pivot);

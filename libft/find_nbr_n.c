@@ -24,7 +24,6 @@ int     find_nbr_n(int *values, int len, int n)
 	{
 		result = copy[n - 1];
 		free(copy);
-		ft_putnbr(copy[0]);
 		return (result);
 	}
 	else

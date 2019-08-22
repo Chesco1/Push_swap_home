@@ -12,14 +12,12 @@
 
 #include "libft.h"
 
-t_list     *ft_lst_remove_first(t_list **alst)
+void        ft_lst_remove_first(t_list **alst)
 {
-    t_list  *first;
-    t_list  *second;
+    t_list  *tmp;
 
-    first = *alst;
-    second = first->next;
-    free(first->content);
-    free(first);
-    return (second);
+    tmp = *alst;
+    *alst = (*alst)->next;
+    free(tmp->content);
+    free(tmp);
 }

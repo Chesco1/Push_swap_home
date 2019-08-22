@@ -33,7 +33,7 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
     
     i = 1;
     j = LEN_B - 1;
-    if (B[0] > pivot)
+    if (B[0] >= pivot)    //'=' was blind gokje
         return (B[0]);
     while (i < LEN_B)
     {

@@ -41,7 +41,7 @@ void    reverse_rotate_both(t_stacks *info)
     reverse_rotate_a_both(info);
     reverse_rotate_b_both(info);
     LAST_OP = 11;
-    ft_putendl("rrr");
+  //  ft_putendl("rrr");
     if (PRINT == 1)
         print_stacks(info);
 }
@@ -56,7 +56,7 @@ void    reverse_rotate_b(t_stacks *info)
         ft_memmove(&B[1], B, sizeof(int) * (LEN_B - 1));
         B[0] = temp;
         LAST_OP = 10;
-        ft_putendl("rrb");
+       // ft_putendl("rrb");
         if (PRINT == 1)
             print_stacks(info);
     }
@@ -72,7 +72,7 @@ void    reverse_rotate_a(t_stacks *info)
         ft_memmove(&A[1], A, sizeof(int) * (LEN_A - 1));
         A[0] = temp; 
         LAST_OP = 9;
-        ft_putendl("rra");
+      //  ft_putendl("rra");
         if (PRINT == 1)
             print_stacks(info); 
     }

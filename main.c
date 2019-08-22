@@ -44,11 +44,9 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
 {
     int i;
     int j;
-    t_list *to_push_to_a;
-    t_list *to_push_to_b;
+    t_list  *b_partitions;
 
-    to_push_to_a = ft_lstnew(NULL, 0);
-    to_push_to_a = ft_lstnew(NULL, 0);
+    B_PARTITIONS = ft_lstnew(NULL, 0);
     i = 1;
     j = 0;
     PRINT = 0;
