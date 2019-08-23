@@ -33,16 +33,16 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
     
     i = 1;
     j = LEN_B - 1;
-    if (B[0] >= pivot)    //'=' was blind gokje
+    if (B[0] > pivot)    //'=' was blind gokje
         return (B[0]);
     while (i < LEN_B)
     {
-        if (B[i] >= pivot)
+        if (B[i] > pivot)
         {
             ft_strcpy(op_to_closest, "rb");
             return (B[i]);
         }
-        else if (B[j] >= pivot)
+        else if (B[j] > pivot)
         {
             ft_strcpy(op_to_closest, "rrb");
             return (B[j]);
@@ -50,6 +50,8 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
         i++;
         j--;
     }
+    // ft_putendl("oeiii....");
+    // exit (1);
     return (B[0]);
 }
 

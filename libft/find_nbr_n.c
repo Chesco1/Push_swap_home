@@ -12,7 +12,23 @@
 
 #include "libft.h"
 
-int     find_nbr_n(int *values, int len, int n)
+static void		print_error_message(int len, int n)
+{
+	if (n == 1)
+		ft_printf("Find_nbr_n error: Looking for first item in array of size \
+		%i. Stop\n", len);
+	else if (n == 2)
+		ft_printf("Find_nbr_n error: Looking for second item in array of size \
+		%i. Stop\n", len);
+	else if (n == 3)
+		ft_printf("Find_nbr_n error: Looking for third item in array of size \
+		%i. Stop\n", len);
+	else
+		ft_printf("Find_nbr_n error: Looking for %ith item in array of size \
+		%i. Stop\n", n, len);
+}
+
+int     		find_nbr_n(int *values, int len, int n)
 {
 	int result;
 	int *copy;
@@ -29,7 +45,7 @@ int     find_nbr_n(int *values, int len, int n)
 	else
 	{
 		free(copy);
-		write(2, "Find_nbr_n error: Array consists of less then n integers. Stop", 63);
+		print_error_message(len, n);
 		exit(1);
 	}
 }
