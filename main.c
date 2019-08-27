@@ -46,7 +46,7 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
     int j;
     t_list  *b_partitions;
 
-    B_PARTITIONS = ft_lstnew(NULL, 0);
+    B_PARTITIONS = NULL;
     i = 1;
     j = 0;
     PRINT = 0;
@@ -59,6 +59,7 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
     B = (int *)malloc(sizeof(int) * LEN_A);
     LAST_OP = 0;
     LEFT_IN_PARTITION_A = LEN_A;
+    OFFSET_B = 0;
     while (i < argc)
     {
         A[j] = ft_atoi(argv[i]);

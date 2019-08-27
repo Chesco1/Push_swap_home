@@ -12,21 +12,18 @@
 
 #include "libft.h"
 
-int		ft_max_mult(int args, int *values)
+int		ft_max_mult(int *values, int len)
 {
-    int             *copy;
-    int             i;
-    int             max;
+    int i;
+    int biggest;
 
-    i = 0;
-    copy = ft_intdup(values, args);
-    while (i + 1 < args)
+    i = 1;
+    biggest = values[0];
+    while (i < len)
     {
-        if (copy[i] > copy[i + 1])
-            ft_swap(&copy[i], &copy[i + 1]);
+        if (values[i] > biggest)
+            biggest = values[i];
         i++;
     }
-    max = copy[i];
-    free(copy);
-    return (max);
+    return (biggest);
 }

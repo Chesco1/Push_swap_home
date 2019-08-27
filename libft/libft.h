@@ -76,10 +76,11 @@ int					ft_iseven(int nb);
 
 int					ft_min(int x, int y);
 int					ft_max(int x, int y);
-int					ft_min_mult(int args, int *values);
-int					ft_max_mult(int args, int *values);
+int					ft_min_mult(int *values, int len);
+int					ft_max_mult(int *values, int len);
 
 size_t				ft_strlen(const char *str);
+size_t				ft_lstlen(t_list *lst);
 size_t				ft_strlen_int(const int *str);
 size_t				ft_linelen(const char *str);
 

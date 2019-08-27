@@ -27,6 +27,7 @@ typedef struct  s_stacks
     char        print;
     char        show_color;
     int         left_in_partition_a;
+    int         offset_b;
     t_list      *b_partitions;
 }               t_stacks;              
 
@@ -45,6 +46,7 @@ typedef struct  s_stacks
 # define LEFT_IN_PARTITION_A info->left_in_partition_a
 # define B_PARTITIONS info->b_partitions
 # define LEFT_IN_PARTITION_B info->b_partitions->content_size
+# define OFFSET_B info->offset_b
 
 void	swap_a(t_stacks *info);
 void	swap_b(t_stacks *info);
@@ -74,4 +76,7 @@ void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest);
 
 void	push_back_to_a(t_stacks *info);
 void	push_back_to_b(t_stacks *info);
+void    correct_stack_a(t_stacks *info);
+void    correct_stack_b(t_stacks *info);
+
 #endif

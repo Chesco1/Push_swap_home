@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_min_mult.c                                      :+:    :+:            */
+/*   ft_lstlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/06 15:21:45 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/06/06 15:21:46 by ccoers        ########   odam.nl         */
+/*   Created: 2019/08/27 13:03:10 by ccoers        #+#    #+#                 */
+/*   Updated: 2019/08/27 13:03:12 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_min_mult(int *values, int len)
+size_t     ft_lstlen(t_list *lst)
 {
-    int i;
-    int smallest;
+    int     i;
+    t_list  *current; 
 
-    i = 1;
-    smallest = values[0];
-    while (i < len)
+    i = 0;
+    current = lst;
+    while (current != NULL)
     {
-        if (values[i] < smallest)
-            smallest = values[i];
+        current = current->next;
         i++;
     }
-    return (smallest);
+    return (i);
 }

@@ -14,9 +14,21 @@
 
 void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest)
 {
+    int bottom_nb;
+    
+    bottom_nb = B[LEN_B - 1];
     while (B[0] != to_find)
         execute_command(info, op_to_closest);
     push_a(info);
+    if (ft_lstlen(B_PARTITIONS) > 1)
+    {
+        while (B[LEN_B - 1] != bottom_nb)
+        {
+            // print_stacks(info);
+            // ft_putnbr(ft_lstlen(B_PARTITIONS));
+            execute_command(info, "rrb");
+        }
+    }
 }
 
 void    push_closest_b(t_stacks *info, int to_find, char *op_to_closest)
@@ -33,16 +45,16 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
     
     i = 1;
     j = LEN_B - 1;
-    if (B[0] > pivot)    //'=' was blind gokje
+    if (B[0] >= pivot)    //'=' was blind gokje
         return (B[0]);
     while (i < LEN_B)
     {
-        if (B[i] > pivot)
+        if (B[i] >= pivot)
         {
             ft_strcpy(op_to_closest, "rb");
             return (B[i]);
         }
-        else if (B[j] > pivot)
+        if (B[j] >= pivot)
         {
             ft_strcpy(op_to_closest, "rrb");
             return (B[j]);
@@ -50,8 +62,7 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
         i++;
         j--;
     }
-    // ft_putendl("oeiii....");
-    // exit (1);
+    ft_putendl("kippen");
     return (B[0]);
 }
 
