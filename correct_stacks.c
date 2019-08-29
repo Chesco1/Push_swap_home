@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-void    correct_stack_b(t_stacks *info)
-{
-    if (ft_lstlen(B_PARTITIONS) > 1)
-    {
-        while (OFFSET_B > 0)
-        {
-            execute_command(info, "rrb");
-            OFFSET_B--;
-        }
-    }
-    OFFSET_B = 0;
-}
-
 void    correct_stack_a(t_stacks *info)
 {
     int i;
