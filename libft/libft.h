@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 11:56:34 by fmiceli        #+#    #+#                */
-/*   Updated: 2019/05/27 17:05:35 by avan-rei      ########   odam.nl         */
+/*   Updated: 2019/09/02 16:34:21 by svoort        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-#include "Printf/ft_printf.h"
+#include "printf/ft_printf.h"
 
 # define TRUE 1
 # define FALSE 0

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/04 13:44:33 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/06/04 13:44:40 by ccoers        ########   odam.nl         */
+/*   Created: 2019/06/04 13:44:33 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/02 17:00:27 by svoort        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ void	push_back_to_a(t_stacks *info);
 void	push_back_to_b(t_stacks *info);
 void    correct_stack_a(t_stacks *info);
 void    correct_stack_b(t_stacks *info);
+
+void	free_all(t_stacks *info);
 
 #endif

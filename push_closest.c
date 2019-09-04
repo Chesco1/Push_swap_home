@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/05 15:08:00 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/07/05 15:08:01 by ccoers        ########   odam.nl         */
+/*   Created: 2019/07/05 15:08:00 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/04 15:37:47 by svoort        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest)
     while (B[0] != to_find)
         execute_command(info, op_to_closest);
     push_a(info);
-    if (ft_lstlen(B_PARTITIONS) > 2)
+    if (ft_lstlen(B_PARTITIONS) > 1)
     {
         while (B[LEN_B - 1] != bottom_nb)
         {

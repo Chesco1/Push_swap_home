@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/12 19:25:03 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/06/12 19:25:05 by ccoers        ########   odam.nl         */
+/*   Created: 2019/06/12 19:25:03 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/04 17:58:01 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
 {
     int i;
     int j;
-    t_list  *b_partitions;
 
-    B_PARTITIONS = ft_lstnew(NULL, 0);
-    B_PARTITIONS->next = NULL;
+    B_PARTITIONS = NULL;
     i = 1;
     j = 0;
     PRINT = 0;
@@ -56,8 +54,8 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
     // LEN_A = argc - flags - 1;
 	LEN_A = argc - 1;
     LEN_B = 0;
-    A = (int *)malloc(sizeof(int) * LEN_A);
-    B = (int *)malloc(sizeof(int) * LEN_A);
+    A = (int *)ft_memalloc(sizeof(int) * LEN_A + 1);
+    B = (int *)ft_memalloc(sizeof(int) * LEN_A + 1);
     LAST_OP = 0;
     LEFT_IN_PARTITION_A = LEN_A;
     while (i < argc)
@@ -72,9 +70,10 @@ int             main(int argc, char **argv)
 {
     t_stacks *info;
 
-    info = (t_stacks *)malloc(sizeof(t_stacks));
+    info = (t_stacks *)ft_memalloc(sizeof(t_stacks));
     fill_struct(argc, argv, info);
 	initial_push(info);
 	print_stacks(info);
+    free_all(info);
     return (0);
 }

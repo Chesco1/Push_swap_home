@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/28 16:34:09 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/01/30 14:32:34 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/28 16:34:09 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/04 15:33:56 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!*alst)
+	if (new == NULL || alst == NULL)
+		new->next = NULL;
+	else
 	{
-		*alst = (t_list *)malloc(sizeof(t_list));
-		(*alst)->content = new->content;
-		(*alst)->content_size = new->content_size;
-		(*alst)->next = NULL;
-		return ;
+		new->next = *alst;
+		*alst = new;
 	}
-	new->next = *alst;
-	*alst = new;
 }

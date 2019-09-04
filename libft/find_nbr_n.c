@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   find_median.c                                      :+:    :+:            */
+/*   find_nbr_n.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/07 13:21:58 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/06/07 13:22:02 by ccoers        ########   odam.nl         */
+/*   Created: 2019/06/07 13:21:58 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/02 17:11:19 by svoort        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,20 @@ int     		find_nbr_n(int *values, int len, int n)
 	int result;
 	int *copy;
 
-	copy = (int *)malloc(sizeof(int) * len);
-	ft_memcpy(copy, values, len * sizeof(int));
+	copy = (int *)ft_memalloc(sizeof(int) * len);
+	copy = ft_memcpy(copy, values, len * sizeof(int));
 	bubble_sort(copy, len, 'a');
 	if (n <= len)
 	{
 		result = copy[n - 1];
-		free(copy);
+		if (copy)
+			free(copy);
 		return (result);
 	}
 	else
 	{
-		free(copy);
+		if (copy)
+			free(copy);
 		print_error_message(len, n);
 		exit(1);
 	}

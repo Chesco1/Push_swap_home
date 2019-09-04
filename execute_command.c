@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/05 16:53:05 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/06/05 16:53:07 by ccoers        ########   odam.nl         */
+/*   Created: 2019/06/05 16:53:05 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/02 17:15:44 by svoort        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 void    handle_error(t_stacks *info)
 {
     write(2, "Error\n", 6);
-    free(A);
-    free(B);
-    free(info);
+	if (A)
+    	free(A);
+	if (B)
+    	free(B);
+	if (info)
+    	free(info);
     exit(2);
 }
 

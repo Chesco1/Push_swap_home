@@ -13,24 +13,26 @@
 #include "ft_printf.h"
 
 static int	process_format_str(const char *format_str, va_list *ap,
-	t_print_info *print_info)
+                               t_print_info *print_info)
 {
-	t_format		*arg;
-
-	arg = (t_format *)malloc(sizeof(t_format));
-	FLAGS = 0;
-	WIDTH = 0;
-	PRECISION = -1;
-	LENGTH = 0;
-	SPECIFIER = 0;
-	PRECISION_WAS_SET = 1;
-	set_arg(arg, format_str, ap);
-	if (PRECISION == -1)
-		default_precision(arg);
-	set_result(ap, arg);
-	set_to_print(arg, print_info);
-	free(arg);
-	return (INDEX_SPECIFIER + 2);
+    t_format		*arg;
+    int				save;
+    
+    arg = (t_format *)malloc(sizeof(t_format));
+    FLAGS = 0;
+    WIDTH = 0;
+    PRECISION = -1;
+    LENGTH = 0;
+    SPECIFIER = 0;
+    PRECISION_WAS_SET = 1;
+    set_arg(arg, format_str, ap);
+    if (PRECISION == -1)
+        default_precision(arg);
+    set_result(ap, arg);
+    set_to_print(arg, print_info);
+    save = INDEX_SPECIFIER + 2;
+    free(arg);
+    return (save);
 }
 
 static int	print(const char *format, va_list *ap, t_print_info *print_info)

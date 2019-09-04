@@ -5,13 +5,37 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/04 12:19:35 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/07/04 12:19:36 by ccoers        ########   odam.nl         */
+/*   Created: 2019/07/04 12:19:35 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/04 17:55:31 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h" //kippen
 #include "push_swap.h"
+
+static t_list	*ft_lstnew_b(void *content, size_t content_size)
+{
+	t_list *lst;
+
+	lst = (t_list *)ft_memalloc(sizeof(t_list));
+	if (lst == NULL)
+		return (NULL);
+	if (content == NULL)
+	{
+		lst->content = NULL;
+		lst->content_size = content_size;
+	}
+	else
+	{
+		lst->content = (void *)ft_strdup(content);
+		if (lst->content == NULL)
+			return (0);
+		lst->content_size = content_size;
+		free(content);
+	}
+	lst->next = NULL;
+	return (lst);
+}
 
 void	check_swap(t_stacks *info)
 {
@@ -35,7 +59,7 @@ void	update_partitions(t_stacks *info, char stack_last_pushed, int amount_last_p
 		{
 			LEFT_IN_PARTITION_A -= amount_last_pushed;
 		}
-		ft_lstadd(&B_PARTITIONS, ft_lstnew("hoi", amount_last_pushed));
+		ft_lstadd(&B_PARTITIONS, ft_lstnew_b(ft_strdup("hoi"), amount_last_pushed));
 	}
 	else if (stack_last_pushed == 'A')
 	{
@@ -103,9 +127,8 @@ void	push_back_to_a(t_stacks *info)
 		printf("\nJust pushed %i numbers to A", last_to_a);
 		update_partitions(info, 'A', last_to_a);
 		print_stacks(info);
-		printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
-		 = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
-		getchar();
+		// printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
+		//  = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
 		check_swap(info);
 	}
 	if (is_done(info) == 0)
