@@ -20,13 +20,13 @@ void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest)
     while (B[0] != to_find)
         execute_command(info, op_to_closest);
     push_a(info);
-    if (ft_lstlen(B_PARTITIONS) > 1)
-    {
-        while (B[LEN_B - 1] != bottom_nb)
-        {
-            execute_command(info, "rrb");
-        }
-    }
+    // if (ft_lstlen(B_PARTITIONS) > 1)
+    // {
+    //     while (B[LEN_B - 1] != bottom_nb)
+    //     {
+    //         execute_command(info, "rrb");
+    //     }
+    // }
 }
 
 void    push_closest_b(t_stacks *info, int to_find, char *op_to_closest)

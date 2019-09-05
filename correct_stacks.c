@@ -28,3 +28,18 @@ void    correct_stack_a(t_stacks *info)
     while (A[LEN_A - 1] != to_bottom)
         execute_command(info, op);
 }
+
+void    correct_stack_b(t_stacks *info, int bottom_nb)
+{
+    int i;
+    char op[4];
+
+    i = 0;
+    ft_strcpy(op, "rb");
+    while (B[i] != bottom_nb)
+        i++;
+    if (i > LEN_B / 2)
+        ft_strcpy(op, "rrb");
+    while (B[LEN_B - 1] != bottom_nb)
+        execute_command(info, op);
+}

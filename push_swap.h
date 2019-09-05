@@ -75,7 +75,7 @@ void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest);
 void	push_back_to_a(t_stacks *info);
 void	push_back_to_b(t_stacks *info);
 void    correct_stack_a(t_stacks *info);
-void    correct_stack_b(t_stacks *info);
+void    correct_stack_b(t_stacks *info, int bottom_nb);
 
 void	free_all(t_stacks *info);
 
