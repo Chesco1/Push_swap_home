@@ -60,7 +60,6 @@ int      find_closest_B(t_stacks *info, int pivot, char *op_to_closest)
         i++;
         j--;
     }
-    ft_putendl("kippen");
     return (B[0]);
 }
 

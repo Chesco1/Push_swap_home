@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdio.h" //kippen
 #include "push_swap.h"
 
 static t_list	*ft_lstnew_b(void *content, size_t content_size)
@@ -86,7 +85,6 @@ void	push_back_to_b(t_stacks *info)
         closest = find_closest_A(info, pivot, op_to_closest);
         while (closest < pivot)
         {
-			ft_putendl("hoi");
             push_closest_b(info, closest, op_to_closest);
             closest = find_closest_A(info, pivot, op_to_closest);
 			last_to_b++;
@@ -95,8 +93,8 @@ void	push_back_to_b(t_stacks *info)
 		update_partitions(info, 'B', last_to_b);
 		print_stacks(info);
 		check_swap(info);
-		printf("\nJust pushed %i numbers to B", last_to_b);
-		printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
+		ft_printf("\nJust pushed %i numbers to B", last_to_b);
+		ft_printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
 		 = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
 		i++;
     }
@@ -124,11 +122,11 @@ void	push_back_to_a(t_stacks *info)
 			last_to_a++;
 			LEFT_IN_PARTITION_B--;
     	}
-		printf("\nJust pushed %i numbers to A", last_to_a);
+		ft_printf("\nJust pushed %i numbers to A", last_to_a);
 		update_partitions(info, 'A', last_to_a);
 		print_stacks(info);
-		// printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
-		//  = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
+	 	printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
+		= %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
 		check_swap(info);
 	}
 	if (is_done(info) == 0)
@@ -144,11 +142,9 @@ void	initial_push(t_stacks *info)
     char op_to_closest[4];
 	int last_to_b;
 
+	print_stacks(info);
     while (LEN_A > 2)
     {
-		print_stacks(info);
-		ft_putnbr(LEN_A);
-		// exit(0);
 		last_to_b = 0;
         pivot = find_nbr_n(A, LEN_A, (LEN_A / 2) + 1);
         closest = find_closest_A(info, pivot, op_to_closest);
@@ -159,11 +155,9 @@ void	initial_push(t_stacks *info)
 			last_to_b++;
         }
 		ft_printf("\nJust pushed %i numbers to B", last_to_b);
-		print_stacks(info);
 		update_partitions(info, 'B', last_to_b);
 		print_stacks(info);
-		// exit(1);
-		printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
+		ft_printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
 		 = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
 		check_swap(info);
     }
