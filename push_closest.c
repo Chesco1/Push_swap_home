@@ -32,7 +32,9 @@ void    push_closest_a(t_stacks *info, int to_find, char *op_to_closest)
 void    push_closest_b(t_stacks *info, int to_find, char *op_to_closest)
 {
     while (A[0] != to_find)
+    {
         execute_command(info, op_to_closest);
+    }
     push_b(info);
 }
 

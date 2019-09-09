@@ -28,6 +28,7 @@ typedef struct  s_stacks
     char        show_color;
     int         left_in_partition_a;
     t_list      *b_partitions;
+    t_list      *instructions;
 }               t_stacks;              
 
 
@@ -45,6 +46,7 @@ typedef struct  s_stacks
 # define LEFT_IN_PARTITION_A info->left_in_partition_a
 # define B_PARTITIONS info->b_partitions
 # define LEFT_IN_PARTITION_B info->b_partitions->content_size
+# define INSTRUCTIONS info->instructions
 
 void	swap_a(t_stacks *info);
 void	swap_b(t_stacks *info);
@@ -77,6 +79,6 @@ void	push_back_to_b(t_stacks *info);
 void    correct_stack_a(t_stacks *info);
 void    correct_stack_b(t_stacks *info, int bottom_nb);
 
-void	free_all(t_stacks *info);
+t_list	*ft_lstnew_b(void *content, size_t content_size);
 
 #endif

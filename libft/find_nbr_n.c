@@ -41,7 +41,6 @@ int     		find_nbr_n(int *values, int len, int n)
 		result = copy[n - 1];
 		if (copy)
 			free(copy);
-		return (result);
 	}
 	else
 	{
@@ -50,4 +49,5 @@ int     		find_nbr_n(int *values, int len, int n)
 		print_error_message(len, n);
 		exit(1);
 	}
+	return (result);
 }

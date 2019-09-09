@@ -23,6 +23,7 @@ void    push_b(t_stacks *info)
         LEN_A--;
         LAST_OP = 5;
       //  ft_putendl("pb");
+        ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("pb", 2));
         if (PRINT == 1)
             print_stacks(info);
     }
@@ -39,6 +40,7 @@ void    push_a(t_stacks *info)
         LEN_B--;
         LAST_OP = 4;
      //   ft_putendl("pa");
+        ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("pa", 2));
         if (PRINT == 1)
             print_stacks(info);
     }

@@ -12,15 +12,24 @@
 
 #include "libft.h"
 
-t_list	*ft_lstunlink(t_list **head_node, t_list *to_unlink)
+void		ft_lst_unlink(t_list **alst)
 {
-	t_list	*previous;
+	t_list *current;
+	t_list *temp;
 
-	if (*head_node == to_unlink)
-		return (ft_lstdequeue(head_node));
-	previous = *head_node;
-	while (previous->next != to_unlink)
-		previous = previous->next;
-	previous->next = to_unlink->next;
-	return (to_unlink);
+	current = *alst;
+	if ((int)current->content_size == 1337)
+	{
+		*alst = current->next;
+		free(current->content);
+		free(current);
+		current = NULL;
+	}
+	while (current->next != NULL && (int)current->next->content_size != 1337)
+		current = current->next;
+	temp = current->next;
+	current->next = current->next->next;
+	free(temp->content);
+	free(temp);
+	temp = NULL;
 }

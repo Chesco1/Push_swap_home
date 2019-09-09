@@ -42,6 +42,7 @@ void            rotate_both(t_stacks *info)
     rotate_b_both(info);
     LAST_OP = 8;
    // ft_putendl("rr");
+    ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("rr", 2));
     if (PRINT == 1)
         print_stacks(info);
 }
@@ -57,6 +58,7 @@ void            rotate_b(t_stacks *info)
         B[LEN_B - 1] = temp;
         LAST_OP = 7;
       //  ft_putendl("rb");
+        ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("rb", 2));
         if (PRINT == 1)
             print_stacks(info);
     }
@@ -73,6 +75,7 @@ void            rotate_a(t_stacks *info)
         A[LEN_A - 1] = temp;
         LAST_OP = 6;
        // ft_putendl("ra");
+        ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("ra", 2));
         if (PRINT == 1)
             print_stacks(info);    
     }

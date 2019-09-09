@@ -40,12 +40,26 @@ static int     handle_flags(int argc, char **argv, t_stacks *info)
     return (flags);
 }
 
+void            print_instructions(t_stacks *info)
+{
+    t_list *current;
+
+    current = INSTRUCTIONS;
+    while (current != NULL)
+    {
+        if (current->content)
+            ft_putendl(current->content);
+        current = current->next;
+    }
+}
+
 static void     fill_struct(int argc, char **argv, t_stacks *info)
 {
     int i;
     int j;
 
     B_PARTITIONS = NULL;
+    INSTRUCTIONS = (t_list *)ft_memalloc(sizeof(t_list));
     i = 1;
     j = 0;
     PRINT = 0;
@@ -74,6 +88,6 @@ int             main(int argc, char **argv)
     fill_struct(argc, argv, info);
 	initial_push(info);
 	print_stacks(info);
-    free_all(info);
+    print_instructions(info);
     return (0);
 }

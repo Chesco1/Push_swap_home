@@ -30,6 +30,7 @@ void    swap_both(t_stacks *info)
     swap_b_both(info);
     LAST_OP = 3;
   //  ft_putendl("ss");
+    ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("ss", 2));
 }
 
 void    swap_b(t_stacks *info)
@@ -39,6 +40,7 @@ void    swap_b(t_stacks *info)
         ft_swap(&B[0], &B[1]);
         LAST_OP = 2;
        // ft_putendl("sb");
+        ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("sb", 2));
     }
 }
 
@@ -49,5 +51,6 @@ void    swap_a(t_stacks *info)
         ft_swap(&A[0], &A[1]);
         LAST_OP = 1;
        // ft_putendl("sa");
+        ft_lstaddback(&INSTRUCTIONS, ft_lstnew_b("sa", 2));
     }
 }
