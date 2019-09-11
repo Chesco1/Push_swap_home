@@ -53,6 +53,34 @@ void            print_instructions(t_stacks *info)
     }
 }
 
+void            delete_instructions(t_stacks *info)
+{
+    t_list *current;
+   
+    current = INSTRUCTIONS;
+    while (current)
+    {
+        if (current->content == NULL)
+            ft_lstunlink(&INSTRUCTIONS, current);
+        current = current->next;
+    }
+    current = INSTRUCTIONS;   
+    while (current->next != NULL)
+    { 
+        if ((ft_strequ(current->content, "pa") == 1 &&
+        ft_strequ(current->next->content, "pb") == 1) || 
+        (ft_strequ(current->content, "pb") == 1 && 
+        ft_strequ(current->next->content, "pa") == 1))
+        {
+            ft_lstunlink(&INSTRUCTIONS, current);
+            ft_lstunlink(&INSTRUCTIONS, current->next);
+            current = INSTRUCTIONS;
+            continue ;
+        }
+        current = current->next;
+    }
+}
+
 static void     fill_struct(int argc, char **argv, t_stacks *info)
 {
     int i;
@@ -87,7 +115,7 @@ int             main(int argc, char **argv)
     info = (t_stacks *)ft_memalloc(sizeof(t_stacks));
     fill_struct(argc, argv, info);
 	initial_push(info);
-	print_stacks(info);
+    delete_instructions(info);
     print_instructions(info);
     return (0);
 }

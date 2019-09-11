@@ -120,7 +120,6 @@ void	initial_push(t_stacks *info)
     char op_to_closest[4];
 	int last_to_b;
 
-	print_stacks(info);
     while (LEN_A > 2)
     {
 		last_to_b = 0;
