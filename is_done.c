@@ -23,7 +23,6 @@ int     is_sorted(t_stacks *info, char stack)
         {
             if (A[i] > A[i + 1])
             {
-                //ft_printf("A[i] = %i\nA[i + 1] = %i\n\n", A[i], A[i + 1]);
                 return (0);
             }
             i++;
@@ -45,7 +44,6 @@ int     is_done(t_stacks *info)
 {
     if (is_sorted(info, 'A') == 1 && LEN_B == 0)
     {
-        ft_printf("LEN_A = %i\nLEN_B = %i\n\n", LEN_A, LEN_B);
         return (1);
     }
     return (0);

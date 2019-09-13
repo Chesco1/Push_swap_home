@@ -67,13 +67,9 @@ void	push_back_to_b(t_stacks *info)
         }
 		correct_stack_a(info);
 		update_partitions(info, 'B', last_to_b);
-		// print_stacks(info);
-		check_swap(info);
-		// ft_printf("\nJust pushed %i numbers to B", last_to_b);
-		// ft_printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
-		//  = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
 		i++;
     }
+	check_swap(info);
 	push_back_to_a(info);
 }
 
@@ -102,11 +98,7 @@ void	push_back_to_a(t_stacks *info)
     	}
 		if (ft_lstlen(B_PARTITIONS) > 1)
 			correct_stack_b(info, bottom_nb);
-		// ft_printf("\nJust pushed %i numbers to A", last_to_a);
 		update_partitions(info, 'A', last_to_a);
-		// print_stacks(info);
-	 	// ft_printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
-		// = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
 		check_swap(info);
 	}
 	if (is_done(info) == 0)
@@ -120,23 +112,21 @@ void	initial_push(t_stacks *info)
     char op_to_closest[4];
 	int last_to_b;
 
-    while (LEN_A > 2)
+    while (LEN_A > 3)
     {
 		last_to_b = 0;
         pivot = find_nbr_n(A, LEN_A, (LEN_A / 2) + 1);
         closest = find_closest_A(info, pivot, op_to_closest);
-        while (closest < pivot)
+        while (closest < pivot && LEN_A > 3)
         {
             push_closest_b(info, closest, op_to_closest);
             closest = find_closest_A(info, pivot, op_to_closest);
 			last_to_b++;
         }
-		// ft_printf("\nJust pushed %i numbers to B", last_to_b);
 		update_partitions(info, 'B', last_to_b);
-		// print_stacks(info);
-		// ft_printf("CLOSEST = %i\nPIVOT = %i\nLEFT_IN_PARTITION_A = %i\nLEN_A = %i\nLEN_B = %i\nLEFT_IN_PARTITION_B\
-		//  = %zu\nB_PARTITIONS = %zu\n\n", closest, pivot, LEFT_IN_PARTITION_A, LEN_A, LEN_B, LEFT_IN_PARTITION_B, ft_lstlen(B_PARTITIONS));
-		check_swap(info);
     }
+	check_swap(info);
+	if (LEN_A == 3)
+		sort_three_a(info);
 	push_back_to_a(info);
 }

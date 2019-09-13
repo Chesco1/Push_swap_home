@@ -92,8 +92,6 @@ static void     fill_struct(int argc, char **argv, t_stacks *info)
     j = 0;
     PRINT = 0;
     SHOW_COLOR = 0;
-    // flags = handle_flags(argc, argv, info);
-    // LEN_A = argc - flags - 1;
 	LEN_A = argc - 1;
     LEN_B = 0;
     A = (int *)ft_memalloc(sizeof(int) * LEN_A + 1);
@@ -117,5 +115,6 @@ int             main(int argc, char **argv)
 	initial_push(info);
     delete_instructions(info);
     print_instructions(info);
+   // print_stacks(info);
     return (0);
 }

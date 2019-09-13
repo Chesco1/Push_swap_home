@@ -79,6 +79,8 @@ void	push_back_to_b(t_stacks *info);
 void    correct_stack_a(t_stacks *info);
 void    correct_stack_b(t_stacks *info, int bottom_nb);
 
+void    sort_three_a(t_stacks *info);
+
 t_list	*ft_lstnew_b(void *content, size_t content_size);
 
 #endif
