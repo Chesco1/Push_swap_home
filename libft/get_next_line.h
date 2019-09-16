@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.c                                          :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/05 16:44:14 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/06/05 16:44:15 by ccoers        ########   odam.nl         */
+/*   Created: 2019/02/04 18:03:42 by ccoers        #+#    #+#                 */
+/*   Updated: 2019/02/26 17:25:15 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef _GET_NEXT_LINE_H
 
-int    checker(int argc, char **argv)
-{
-    char *line;
-    t_stacks *info;
+# define _GET_NEXT_LINE_H
+# define BUFF_SIZE 8300
 
-    fill_struct(argc, argv, info);
-    while (get_next_line(1, &line) > 0)
-    {
-        execute_command(info, line);
-        free(line);
-    }
-    if (is_done(info) == 1)
-        ft_putendl("OK");
-    else
-        ft_putendl("KO");
-    return (0);
-}
+int		get_next_line(const int fd, char **line);
+
+#endif

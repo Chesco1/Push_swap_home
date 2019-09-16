@@ -125,8 +125,9 @@ void	initial_push(t_stacks *info)
         }
 		update_partitions(info, 'B', last_to_b);
     }
-	check_swap(info);
 	if (LEN_A == 3)
 		sort_three_a(info);
-	push_back_to_a(info);
+	check_swap(info);
+	if (is_done(info) == 0)
+		push_back_to_a(info);
 }

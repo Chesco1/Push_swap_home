@@ -43,13 +43,16 @@ static int     handle_flags(int argc, char **argv, t_stacks *info)
 void            print_instructions(t_stacks *info)
 {
     t_list *current;
+    t_list *to_free;
 
     current = INSTRUCTIONS;
     while (current != NULL)
     {
         if (current->content)
             ft_putendl(current->content);
+        to_free = current;    
         current = current->next;
+        ft_lstunlink(&INSTRUCTIONS, to_free);
     }
 }
 
@@ -81,40 +84,18 @@ void            delete_instructions(t_stacks *info)
     }
 }
 
-static void     fill_struct(int argc, char **argv, t_stacks *info)
-{
-    int i;
-    int j;
-
-    B_PARTITIONS = NULL;
-    INSTRUCTIONS = (t_list *)ft_memalloc(sizeof(t_list));
-    i = 1;
-    j = 0;
-    PRINT = 0;
-    SHOW_COLOR = 0;
-	LEN_A = argc - 1;
-    LEN_B = 0;
-    A = (int *)ft_memalloc(sizeof(int) * LEN_A + 1);
-    B = (int *)ft_memalloc(sizeof(int) * LEN_A + 1);
-    LAST_OP = 0;
-    LEFT_IN_PARTITION_A = LEN_A;
-    while (i < argc)
-    {
-        A[j] = ft_atoi(argv[i]);
-        j++;
-        i++;
-    }
-}
-
 int             main(int argc, char **argv)
 {
     t_stacks *info;
 
     info = (t_stacks *)ft_memalloc(sizeof(t_stacks));
     fill_struct(argc, argv, info);
-	initial_push(info);
-    delete_instructions(info);
-    print_instructions(info);
-   // print_stacks(info);
+    if (is_done(info) == 0)
+    {
+	    initial_push(info);
+        delete_instructions(info);
+        print_instructions(info);
+    //  print_stacks(info);
+    }
     return (0);
 }

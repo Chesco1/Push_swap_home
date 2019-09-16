@@ -67,6 +67,7 @@ void	print_stacks(t_stacks *info);
 int		is_sorted(t_stacks *info, char stack);
 int     is_done(t_stacks *info);
 void	execute_command(t_stacks *info, char *command);
+void    fill_struct(int argc, char **argv, t_stacks *info);
 
 void	initial_push(t_stacks *info);
 int		find_closest_A(t_stacks *info, int pivot, char *op_to_closest);
