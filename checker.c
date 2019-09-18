@@ -12,13 +12,18 @@
 
 #include "push_swap.h"
 
-int    checker(int argc, char **argv)
+int    main(int argc, char **argv)
 {
     char *line;
     t_stacks *info;
 
+    info = (t_stacks *)ft_memalloc(sizeof(t_stacks));
+    line = NULL;
+    if (info == NULL)
+        ft_error();
     fill_struct(argc, argv, info);
-    while (get_next_line(1, &line) > 0)
+    check_duplicate(info);
+    while (get_next_line(0, &line) != 0)
     {
         execute_command(info, line);
         free(line);

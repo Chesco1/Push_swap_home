@@ -12,34 +12,6 @@
 
 #include "push_swap.h"
 
-static int     handle_flags(int argc, char **argv, t_stacks *info)
-{
-    int flags;
-    int i;
-    int j;
-
-    i = 1;
-    flags = 0;
-    while (i < argc)
-    {
-        if (argv[i][0] == '-' && (argv[i][1] == 'p' || argv[i][1] == 'p'))
-        {
-            j = 0;
-            while (argv[i][j] != '\0')
-            {
-                if (argv[i][j] == 'c')
-                    SHOW_COLOR = 1;
-                if (argv[i][j] == 'p')
-                    PRINT = 1;
-                j++;
-            }
-            flags++;
-        }
-        i++;
-    }
-    return (flags);
-}
-
 void            print_instructions(t_stacks *info)
 {
     t_list *current;
@@ -90,6 +62,7 @@ int             main(int argc, char **argv)
 
     info = (t_stacks *)ft_memalloc(sizeof(t_stacks));
     fill_struct(argc, argv, info);
+    check_duplicate(info);
     if (is_done(info) == 0)
     {
 	    initial_push(info);

@@ -31,7 +31,7 @@ void     fill_struct(int argc, char **argv, t_stacks *info)
     LEFT_IN_PARTITION_A = LEN_A;
     while (i < argc)
     {
-        A[j] = ft_atoi(argv[i]);
+        A[j] = ps_atoi(argv[i]);
         j++;
         i++;
     }
