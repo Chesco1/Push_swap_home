@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 11:56:34 by fmiceli        #+#    #+#                */
-/*   Updated: 2019/09/02 16:34:21 by svoort        ########   odam.nl         */
+/*   Updated: 2019/09/23 14:36:37 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-#include "get_next_line.h"
+# include "get_next_line.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -90,7 +90,7 @@ int					ft_strchr_int(const char *s, int c);
 
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strequ(char const *s1, char const *s2);
-int     			find_nbr_n(int *values, int len, int n);
+int					find_nbr_n(int *values, int len, int n);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
@@ -108,7 +108,7 @@ void				*ft_slow_memchr(const void *s, int c, size_t n);
 
 int					*ft_range(int min, int max);
 int					*ft_range_step(int min, int max, int step);
-int     			*ft_intdup(const int *array, int n);
+int					*ft_intdup(const int *array, int n);
 int					*ft_index_n_char(char *str, int c, size_t n);
 
 char				*ft_itoa(int nb);

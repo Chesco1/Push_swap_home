@@ -6,13 +6,13 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/06 14:59:17 by ccoers         #+#    #+#                */
-/*   Updated: 2019/09/04 15:33:35 by avan-rei      ########   odam.nl         */
+/*   Updated: 2019/09/23 14:47:50 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     *ft_intdup(const int *array, int n)
+int		*ft_intdup(const int *array, int n)
 {
 	int *dest;
 

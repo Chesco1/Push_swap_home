@@ -1,21 +1,21 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: ccoers <marvin@codam.nl>                     +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/09/17 14:01:00 by ccoers        #+#    #+#                  #
-#    Updated: 2019/09/17 14:01:01 by ccoers        ########   odam.nl          #
+#    Created: 2019/09/17 14:01:00 by ccoers         #+#    #+#                 #
+#    Updated: 2019/09/23 15:14:40 by avan-rei      ########   odam.nl          #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME_PS = push_swap
 NAME_CH = checker
 SRCS_PS = main.c fill_struct.c sort_small_amount.c is_done.c correct_stacks.c \
 		execute_command.c ft_lstnew_b.c new_push_swap.c print_stacks.c \
 		push_closest.c push.c rotate.c reverse_rotate.c swap.c\
-		ps_atoi.c ft_error.c check_duplicate.c\
+		ps_atoi.c ft_error.c check_duplicate.c update_partitions.c\
 
 SRCS_CH = checker.c	execute_command.c fill_struct.c is_done.c push.c \
 			rotate.c reverse_rotate.c swap.c ft_lstnew_b.c print_stacks.c \

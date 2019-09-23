@@ -5,15 +5,15 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/18 16:56:02 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/09/18 16:56:03 by ccoers        ########   odam.nl         */
+/*   Created: 2019/09/18 16:56:02 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/23 14:25:33 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_error(void)
+void	ft_error(void)
 {
-    ft_putendl("Error");
-    exit(1);
+	ft_putendl("Error");
+	exit(1);
 }

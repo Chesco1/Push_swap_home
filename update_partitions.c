@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.c                                          :+:    :+:            */
+/*   update_partitions.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/05 16:44:14 by ccoers         #+#    #+#                */
-/*   Updated: 2019/09/23 14:26:05 by avan-rei      ########   odam.nl         */
+/*   Created: 2019/09/23 14:49:38 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/23 14:59:16 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
+void	update_partitions(t_stacks *info, char stack_last_pushed,
+		int amount_last_pushed)
 {
-	char		*line;
-	t_stacks	*info;
-
-	info = (t_stacks *)ft_memalloc(sizeof(t_stacks));
-	line = NULL;
-	if (info == NULL)
-		ft_error();
-	fill_struct(argc, argv, info);
-	check_duplicate(info);
-	while (get_next_line(0, &line) != 0)
+	if (stack_last_pushed == 'B')
 	{
-		execute_command(info, line);
-		free(line);
+		if (LEFT_IN_PARTITION_A > 2)
+		{
+			LEFT_IN_PARTITION_A -= amount_last_pushed;
+		}
+		ft_lstadd(&B_PARTITIONS, ft_lstnew_b("hoi", amount_last_pushed));
 	}
-	if (is_done(info) == 1)
-		ft_putendl("OK");
-	else
-		ft_putendl("KO");
-	return (0);
+	else if (stack_last_pushed == 'A')
+	{
+		LEFT_IN_PARTITION_A = amount_last_pushed;
+	}
+	if (LEFT_IN_PARTITION_B == 0)
+	{
+		ft_lst_remove_first(&B_PARTITIONS);
+	}
 }

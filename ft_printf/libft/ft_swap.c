@@ -5,19 +5,18 @@
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/16 09:04:29 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/01/30 17:38:05 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/16 09:04:29 by ccoers         #+#    #+#                */
+/*   Updated: 2019/09/23 14:40:10 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-
 void	ft_swap(int *a, int *b)
 {
 	int c;
 
-    c = *a;
+	c = *a;
 	*a = *b;
 	*b = c;
 }

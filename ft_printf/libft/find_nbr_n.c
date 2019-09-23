@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/07 13:21:58 by ccoers         #+#    #+#                */
-/*   Updated: 2019/09/02 17:11:19 by svoort        ########   odam.nl         */
+/*   Updated: 2019/09/23 14:47:13 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		print_error_message(int len, int n)
 		%i. Stop\n", n, len);
 }
 
-int     		find_nbr_n(int *values, int len, int n)
+int				find_nbr_n(int *values, int len, int n)
 {
 	int result;
 	int *copy;

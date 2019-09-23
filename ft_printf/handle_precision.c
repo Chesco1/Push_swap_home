@@ -6,13 +6,13 @@
 /*   By: avan-rei <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/20 13:17:31 by avan-rei       #+#    #+#                */
-/*   Updated: 2019/05/28 14:47:51 by avan-rei      ########   odam.nl         */
+/*   Updated: 2019/09/23 14:10:45 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void        check_sign_precision(char *temp_result, t_format *arg,
+void		check_sign_precision(char *temp_result, t_format *arg,
 		int *i, int *len)
 {
 	if (temp_result[0] == '-')
