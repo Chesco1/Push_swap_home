@@ -29,7 +29,7 @@ static void		print_next_b(t_stacks *info, int i)
 			ft_printf("%{$GREEN}=13i", B[i + j]);
 		else if (i + j == 0 && (LAST_OP == 10 || LAST_OP == 11))
 			ft_printf("%{$GREEN}=13i", B[i + j]);
-		else if (i + j != LEN_A - 1 && (LAST_OP == 7 || LAST_OP == 8))
+		else if (i + j != LEN_B - 1 && (LAST_OP == 7 || LAST_OP == 8))
 			ft_printf("%{$GREEN}=13i", B[i + j]);
 		else if (i + j == 0 && LAST_OP == 5)
 			ft_printf("%{$BLUE}=13i", B[i + j]);
@@ -84,7 +84,7 @@ void			print_stacks(t_stacks *info)
 		i++;
 	}
 	ft_putendl("=============================");
-	ft_printf("||  Stack %{$WHITE}c%{RESET}sStack \
-	%{$WHITE}c  %{RESET}s\n", 'A', "   |   ", 'B', "||");
+	ft_printf("||  Stack %{$WHITE}c%{RESET}s", 'A', "   |   ");
+	ft_printf("Stack %{$WHITE}c  %{RESET}s\n", 'B', "||");
 	ft_putendl("=============================");
 }

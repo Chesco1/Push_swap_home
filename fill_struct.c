@@ -12,16 +12,23 @@
 
 #include "push_swap.h"
 
-void	fill_struct(int argc, char **argv, t_stacks *info)
+static int	check_print(char **argv)
+{
+	if (argv[1][0] == '-' && argv[1][1] == 'p' && argv[1][2] == '\0')
+		return (1);
+	return (0);
+}
+
+void		fill_struct(int argc, char **argv, t_stacks *info)
 {
 	int i;
 	int j;
 
 	B_PARTITIONS = NULL;
 	INSTRUCTIONS = (t_list *)ft_memalloc(sizeof(t_list));
-	i = 1;
+	PRINT = check_print(argv);
+	i = 1 + PRINT;
 	j = 0;
-	PRINT = 0;
 	SHOW_COLOR = 0;
 	LEN_A = argc - 1;
 	LEN_B = 0;
