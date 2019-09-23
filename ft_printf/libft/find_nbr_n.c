@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/07 13:21:58 by ccoers         #+#    #+#                */
-/*   Updated: 2019/09/23 17:03:34 by avan-rei      ########   odam.nl         */
+/*   Updated: 2019/09/23 17:13:10 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				find_nbr_n(int *values, int len, int n)
 	int *copy;
 
 	copy = (int *)ft_memalloc(sizeof(int) * len);
-	if(copy == NULL)
+	if (copy == NULL)
 		return (0);
 	copy = ft_memcpy(copy, values, len * sizeof(int));
 	bubble_sort(copy, len, 'a');
