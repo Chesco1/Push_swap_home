@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 16:44:14 by ccoers         #+#    #+#                */
-/*   Updated: 2019/09/23 15:35:49 by avan-rei      ########   odam.nl         */
+/*   Updated: 2019/09/23 16:59:51 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		main(int argc, char **argv)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");
+	exit(0);
 	return (0);
 }
