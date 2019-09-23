@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 16:44:14 by ccoers         #+#    #+#                */
-/*   Updated: 2019/09/23 14:26:05 by avan-rei      ########   odam.nl         */
+/*   Updated: 2019/09/23 15:35:49 by avan-rei      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int		main(int argc, char **argv)
 	line = NULL;
 	if (info == NULL)
 		ft_error();
+	if (argc <= 1)
+		exit(0);
 	fill_struct(argc, argv, info);
 	check_duplicate(info);
 	while (get_next_line(0, &line) != 0)
